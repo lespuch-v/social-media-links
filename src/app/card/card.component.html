@@ -1,0 +1,19 @@
+<main class="main-container">
+  <section class="face-container">
+    <img class="img" [src]="image" alt="JessicaRandall mug shot" />
+    <h1 class="name">{{ name }}</h1>
+    <h2 class="location">{{ location }}</h2>
+    <p class="ocup">"{{ occupation }}"</p>
+  </section>
+  <section class="button-container">
+    <ng-template #socialMediaLink let-link="link">
+      <button class="button-link">{{ link }}</button>
+    </ng-template>
+
+    <ng-container *ngFor="let link of socialMediaLinks">
+      <ng-container
+        *ngTemplateOutlet="socialMediaLink; context: { link: link }"
+      ></ng-container>
+    </ng-container>
+  </section>
+</main>
